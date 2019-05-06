@@ -3,7 +3,7 @@ class Attendance < ApplicationRecord
   belongs_to :event
   belongs_to :attendee, class_name: "User"
 
-  def send_confirmation_attendance(user)
-    UserMailer.confirm_attendee(user).deliver_now
+  def send_confirmation_attendance
+    UserMailer.confirm_attendee(self).deliver_now
   end
 end

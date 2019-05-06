@@ -9,10 +9,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: "Welcome to EventBro !")
   end
 
-  def confirm_attendee(user)
-    @user = user
+  def confirm_attendee(attendance)
+    @attendance = attendance
+    @user = attendance.attendee
+    @event = attendance.event
     @url = "https://event-bro.herokuapp.com/"
-    # @attended_event =
 
     mail(to: @user.email, subject: "Confirmation of attendance")
-end
+  end
