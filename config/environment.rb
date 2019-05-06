@@ -2,7 +2,7 @@
 require_relative 'application'
 
 # Initialize the Rails application.
-Rails.application.initialize!
+
 
 
 ActionMailer::Base.smtp_settings = {
@@ -14,3 +14,5 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :enable_starttls_auto => true
 }
+
+Rails.application.initialize!
