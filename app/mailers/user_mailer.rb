@@ -17,3 +17,4 @@ class UserMailer < ActionMailer::Base
 
     mail(to: @user.email, subject: "Confirmation of attendance")
   end
+end
