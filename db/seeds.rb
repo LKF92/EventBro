@@ -13,7 +13,7 @@ puts "erasing pre-existing attendances..."
 Attendance.destroy_all
 
 10.times do
-  User.create!(email: Faker::Internet.email, description: Faker::TvShows::BojackHorseman, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name )
+  User.create!(email: Faker::Name.first_name + "@yopmail.com", description: Faker::TvShows::BojackHorseman, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name )
 end
 
 10.times do
