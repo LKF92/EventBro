@@ -31,7 +31,7 @@
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="<%=edit_user_registration_path%>">View Profile</a>
+              <a class="dropdown-item" href="<%=user_path(current_user.id)%>">View Profile</a>
               <%= link_to "Sign out", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
             </div>
           </li>
