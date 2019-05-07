@@ -32,7 +32,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="<%=edit_user_registration_path%>">View Profile</a>
-              <a class="dropdown-item" href="<%=destroy_user_session_path%>">Logout</a>
+              <%= link_to "Sign out", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
             </div>
           </li>
           <% else %>
