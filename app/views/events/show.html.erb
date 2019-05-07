@@ -1,2 +1,11 @@
-<h1>Event#show</h1>
-<p>Find me in app/views/event/show.html.erb</p>
+<h1> Event n° <%= @event.id %> </h1>
+<br>
+<br>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">Event title : <em> <%=@event.title%>  </em></li>
+  <li class="list-group-item">Last name :<em><%= @event.description %></em></li>
+  <li class="list-group-item">Start date : <em><%= @event.start_date %></em> </li>
+  <li class="list-group-item">Duration : <em><%= @event.duration %></em> </li>
+  <li class="list-group-item">Location : <em><%= @event.location %></em></li>
+  <li class="list-group-item">price : <em><%= @event.price %></em></li>
+</ul>

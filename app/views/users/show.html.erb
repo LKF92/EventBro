@@ -4,14 +4,14 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item">First name : <em> <%=@user.first_name%>  </em></li>
     <li class="list-group-item">Last name :<em><%= @user.last_name %></em></li>
-    <li class="list-group-item">Email : <em><%= @user.email %></em>  <%= link_to "(edit email & password)", edit_user_registration_path%> </li> 
+    <li class="list-group-item">Email : <em><%= @user.email %></em>  <%= link_to "(edit email & password)", edit_user_registration_path%> </li>
     <li class="list-group-item">Description : <em><%= @user.description %></em></li>
   </ul>
   <br>
   <br>
 
   <div class="row">
-    <%= @user.events.each do |event| %>
+    <% @user.events.each do |event| %>
     <div class="col-sm-4 mb-2">
       <div class="list-group">
         <a href="<%=user_path(event.id)%>" class="list-group-item list-group-item-action">
