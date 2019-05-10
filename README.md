@@ -1,24 +1,24 @@
-# README
+README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ceci est EventBro !
 
-Things you may want to cover:
+Pour tester le site ,suis ces étapes :
 
-* Ruby version
+En Local :
 
-* System dependencies
+    Clone ce repo : git clone 
+    Fais un petit bundle install
+    $ rake db:drop
+    $ rake db:create
+    $ rake db:migrate
+    $ rake db:seed
+    lancer le serveur $: rails s
 
-* Configuration
+C'est bon ! Tu peux lancer ton navigateur web avec l'adresse suivante :
+http://localhost:3000/
 
-* Database creation
 
-* Database initialization
+En version web, voici notre heroku :
+https://event-bro.herokuapp.com/
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy !
