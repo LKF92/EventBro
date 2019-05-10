@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h2>Thanks, you paid <strong><%= @event.price%>€</strong>!</h2>
+	<%= link_to "Come back to the event page", event_path(@event)%>
+    <%= yield %>
+  </body>
+</html>

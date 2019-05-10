@@ -7,5 +7,19 @@
   <li class="list-group-item">Start date : <em><%= @event.start_date %></em> </li>
   <li class="list-group-item">Duration : <em><%= @event.duration %></em> </li>
   <li class="list-group-item">Location : <em><%= @event.location %></em></li>
-  <li class="list-group-item">price : <em><%= @event.price %></em></li>
+  <li class="list-group-item">Price : <em><%= @event.price %>€</em></li>
+  <li class="list-group-item">Participants : <em><%= @event.attendees.count %></em></li>
 </ul>
+
+<% if user_signed_in? && not_admin_nor_attending %>
+<div class="container mt-4">
+  <div class="text-center">
+    <%= link_to "Join !", new_event_charge_path(@event.id), :amount => @event.price, class: "btn btn-outline-success" %>
+
+  </div>
+  <% elsif current_user == @event.admin %>
+  <div class="text-center">
+    <a href="" class="btn btn-outline-success">Edit your event !</a>
+  </div>
+
+  <%end%>
