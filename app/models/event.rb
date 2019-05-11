@@ -7,7 +7,7 @@
 
     validates :title, presence: true, length: 5..140
     validates :description, presence: true, length: 20..1000
-    validates :price, presence: true, inclusion: {in: 1..1000}
+    validates :price, presence: true, inclusion: {in: 0..1000}
     validates :location, presence: true
 
 
@@ -21,6 +21,10 @@
 
     def multiple_of_five
       duration % 5 == 0
+    end
+
+    def is_free?
+      self.price == 0
     end
   end
 

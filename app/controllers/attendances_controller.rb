@@ -1,10 +1,13 @@
 class AttendancesController < ApplicationController
+  before_action :is_admin?, only: [:index]
 
   def index
+    @event = Event.find(params[:event_id])
+    @all_attendances = Attendance.where(event_id: @event.id)
   end
 
   def create
-    @amount = Event.find(params[:event_id]).price
+    @amount = (Event.find(params[:event_id]).price)*100
     @event = Event.find(params[:event_id])
 
     customer = Stripe::Customer.create({
@@ -16,7 +19,7 @@ class AttendancesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Rails Stripe customer',
-      currency: 'usd',
+      currency: 'eur',
     })
 
     Attendance.create!(attendee_id: current_user.id, event_id: @event.id, stripe_customer_id: customer.id)
@@ -28,6 +31,9 @@ class AttendancesController < ApplicationController
 
 
   def show
+    @event = Event.find(params[:event_id])
+    @all_attendances = Attendance.all
+
   end
 
   def edit
@@ -37,5 +43,9 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def is_admin?
+    current_user == Event.find(params[:id]).admin_id
   end
 end

@@ -1,2 +1,41 @@
-<h1>Event#edit</h1>
-<p>Find me in app/views/event/edit.html.erb</p>
+<div class="ml-4 mt-5">
+  <!-- FLASH : error in case the user doesn't fill the form correctly -->
+  <% if flash[:danger] %>
+  <div class='alert alert-danger' role='alert'>
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span class="close-button" aria-hidden='true'>&times</span>
+    </button>
+  </div>
+  <% end %>
+
+<h1>Edit your event : <%=@event.title%></h1>
+
+  <%= form_tag url_for(action: 'update'), method: "put" do %>
+
+       <%= label_tag 'Title' %><br/>
+       <%= text_field_tag 'title'%>
+       <br /> <br />
+
+       <%= label_tag 'Description (minimum 20 caracters)' %><br/>
+       <%= text_area_tag 'description'%>
+       <br/> <br />
+
+       <%= label_tag 'Start Date (yyyy-mm-dd hh:mm:ss)' %><br/>
+       <%= text_area_tag 'start_date'%>
+       <br/> <br />
+
+       <%= label_tag 'Duration' %><br/>
+       <%= text_area_tag 'duration'%>
+       <br/> <br />
+
+       <%= label_tag 'Location' %><br/>
+       <%= text_area_tag 'location'%>
+       <br/> <br />
+
+       <%= label_tag 'Price' %><br/>
+       <%= text_area_tag 'price'%>
+       <br/> <br />
+
+       <%= submit_tag "Edit Post" %>
+     <% end %>
+
